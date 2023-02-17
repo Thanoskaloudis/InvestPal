@@ -5,6 +5,9 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import helmet from 'helmet';
 import morgan from 'morgan';
+import investmentRoutes from "./routes/investment.js";
+import generalRoutes from "./routes/general.js";
+import reportsRoutes from "./routes/reports.js";
 
 /* CONFIG */
 dotenv.config();
@@ -16,3 +19,8 @@ app.use(morgan("common"));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
+
+/* ROUTES */
+app.use("/investment", investmentRoutes);
+app.use("/general", generalRoutes);
+app.use("/reports", reportsRoutes);
