@@ -24,3 +24,12 @@ app.use(cors());
 app.use("/investment", investmentRoutes);
 app.use("/general", generalRoutes);
 app.use("/reports", reportsRoutes);
+
+/* MONGOOSE SETUP */
+const PORT = process.env.PORT || 5002;
+mongoose.connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }).then(() => {
+    app.listen(PORT, () => console.log(`Server Port: ${PORT}`));
+  }).catch((error) => console.log(`${error} did not connect`));
