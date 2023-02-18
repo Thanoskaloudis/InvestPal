@@ -1,8 +1,11 @@
-import { CssBaseline, ThemeProvider } from "@mui/material";
-import { createTheme, ThemeOptions } from "@mui/material/styles";
-import { useAppSelector } from "app/hooks";
-import { useMemo } from "react";
-import { themeSettings } from "theme";
+import { createTheme, CssBaseline } from "@mui/material";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { ThemeOptions, ThemeProvider } from "@mui/material/styles";
+import React, { useMemo } from "react";
+import { useAppSelector } from "./app/hooks";
+import { themeSettings } from "./theme";
+import { Dashboard } from "./scenes/dashboard/Dashboard";
+import { Layout } from "./scenes/layout/Layout";
 import './App.css';
 
 function App() {
@@ -11,9 +14,17 @@ function App() {
 
   return (
     <div className="app">
-      <ThemeProvider theme={customTheme}>
-        <CssBaseline />
-      </ThemeProvider>
+      <BrowserRouter>
+        <ThemeProvider theme={customTheme}>
+          <CssBaseline />
+          <Routes>
+            <Route element={<Layout />}>
+              <Route path="/" element={<Navigate to="/dashboard" replace />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+            </Route>
+          </Routes>
+        </ThemeProvider>
+      </BrowserRouter>
     </div>
   );
 }
