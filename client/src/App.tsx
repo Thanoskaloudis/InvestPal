@@ -9,8 +9,8 @@ import { Layout } from "./scenes/layout/Layout";
 import './App.css';
 
 function App() {
-  const theme = useAppSelector((state) => state.theme.theme);
-  const customTheme = useMemo(() => createTheme(themeSettings(theme) as ThemeOptions), [theme]);
+  const mode = useAppSelector((state) => state.theme.mode);
+  const customTheme = useMemo(() => createTheme(themeSettings(mode) as ThemeOptions), [mode]);
 
   return (
     <div className="app">
