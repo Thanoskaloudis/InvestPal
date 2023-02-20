@@ -11,8 +11,9 @@ import React, { useState } from 'react';
 import profileImage from "../assets/profile.png";
 import { StyledBox } from './StyledBox';
 import { setTheme } from '../features/theme/themeSlice';
+import { INavbar } from '../utils/models';
 
-export const Navbar = () => {
+export const Navbar = (props: INavbar) => {
   const dispatch = useAppDispatch();
   const theme = useTheme();
 
@@ -30,7 +31,7 @@ export const Navbar = () => {
     >
       <Toolbar sx={{ justifyContent: 'space-between' }}>
         <StyledBox>
-          <IconButton>
+          <IconButton onClick={() => props.setIsSidebarOpen(!props.isSidebarOpen)}>
             <MenuIcon />
           </IconButton>
           <StyledBox
