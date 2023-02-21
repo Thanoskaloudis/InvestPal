@@ -13,10 +13,51 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
+import PaidIcon from '@mui/icons-material/Paid';
 import { useLocation, useNavigate } from 'react-router-dom';
 import profileImage from "../assets/profile.png";
 import { StyledBox } from './StyledBox';
-import { ChevronLeft, SettingsOutlined } from '@mui/icons-material';
+import { AdminPanelSettingsOutlined, CalendarMonthOutlined, ChevronLeft, ChevronRightOutlined, HomeOutlined, PieChartOutlined, PointOfSaleOutlined, SettingsOutlined, TrendingUpOutlined } from '@mui/icons-material';
+
+const navItems = [
+  {
+    text: "Dashboard",
+    icon: <HomeOutlined />,
+  },
+  {
+    text: "General",
+    icon: null,
+  },
+  {
+    text: "Transactions",
+    icon: <PaidIcon />,
+  },
+  {
+    text: "Overview",
+    icon: <PointOfSaleOutlined />,
+  },
+  {
+    text: "Monthly",
+    icon: <CalendarMonthOutlined />,
+  },
+  {
+    text: "Breakdown",
+    icon: <PieChartOutlined />,
+  },
+  {
+    text: "Reports",
+    icon: null,
+  },
+  {
+    text: "Admin",
+    icon: <AdminPanelSettingsOutlined />,
+  },
+  {
+    text: "Performance",
+    icon: <TrendingUpOutlined />,
+  },
+];
+
 
 export const Sidebar = (props: ISidebar) => {
   const { pathname } = useLocation();
@@ -62,6 +103,53 @@ export const Sidebar = (props: ISidebar) => {
           </StyledBox>
         </Box>
         <List>
+        {navItems.map(({ text, icon }) => {
+                if (!icon) {
+                  return (
+                    <Typography key={text} sx={{ m: "2.25rem 0 1rem 3rem" }}>
+                      {text}
+                    </Typography>
+                  );
+                }
+                const lcText = text.toLowerCase();
+
+                return (
+                  <ListItem key={text} disablePadding>
+                    <ListItemButton
+                      onClick={() => {
+                        navigate(`/${lcText}`);
+                        setActive(lcText);
+                      }}
+                      sx={{
+                        backgroundColor:
+                          active === lcText
+                            ? (theme as any).palette.secondary[300]
+                            : "transparent",
+                        color:
+                          active === lcText
+                            ? (theme as any).palette.primary[600]
+                            : (theme as any).palette.secondary[100],
+                      }}
+                    >
+                      <ListItemIcon
+                        sx={{
+                          ml: "2rem",
+                          color:
+                            active === lcText
+                              ? (theme as any).palette.primary[600]
+                              : (theme as any).palette.secondary[200],
+                        }}
+                      >
+                        {icon}
+                      </ListItemIcon>
+                      <ListItemText primary={text} />
+                      {active === lcText && (
+                        <ChevronRightOutlined sx={{ ml: "auto" }} />
+                      )}
+                    </ListItemButton>
+                  </ListItem>
+                );
+              })}
         </List>
       </Box>
 
@@ -83,7 +171,7 @@ export const Sidebar = (props: ISidebar) => {
               fontSize="0.9rem"
               sx={{ color: (theme as any).palette.secondary[100] }}
             >
-              Thanos
+              User Name
             </Typography>
           </Box>
           <SettingsOutlined
