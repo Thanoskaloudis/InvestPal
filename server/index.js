@@ -9,6 +9,9 @@ import investmentRoutes from "./routes/investment.js";
 import generalRoutes from "./routes/general.js";
 import reportsRoutes from "./routes/reports.js";
 
+import User from "./models/user.js";
+import { dataUser } from "./data/index";
+
 /* CONFIG */
 dotenv.config();
 const app = express();

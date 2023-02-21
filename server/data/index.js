@@ -1,7 +1,7 @@
 //----- Sample Data -----//
 
 // Users
-[
+export const dataUser = [
   {
     name: 'John Smith',
     email: 'john.smith@gmail.com',
@@ -30,7 +30,7 @@
 ]
 
 // Investments
-[
+export const dataInvestments = [
   {
     name: 'Apple Inc',
     type: 'Stock',
@@ -88,7 +88,7 @@
 ]
 
 // Transactions
-[
+export const dataTransactions = [
   {
     type: 'buy',
     amount: 2000,
