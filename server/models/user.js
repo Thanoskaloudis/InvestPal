@@ -15,7 +15,7 @@ const UserSchema = new mongoose.Schema({
     required: true
   },
   investments: [{
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'Investment'
   }],
   role: {

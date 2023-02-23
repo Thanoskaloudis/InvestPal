@@ -14,11 +14,11 @@ const InvestmentSchema = new mongoose.Schema({
     required: true
   },
   owner: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   },
   transactions: [{
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'Transaction'
   }]
 },{ timestamps: true });

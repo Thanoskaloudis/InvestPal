@@ -16,7 +16,7 @@ const TransactionSchema = new mongoose.Schema({
     default: Date.now
   },
   investment: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'Investment'
   }
 }, { timestamps: true });
