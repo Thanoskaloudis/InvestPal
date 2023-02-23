@@ -13,11 +13,21 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
+import { 
+  AdminPanelSettingsOutlined,
+  CalendarMonthOutlined, 
+  ChevronLeft, 
+  ChevronRightOutlined, 
+  HomeOutlined, 
+  PieChartOutlined, 
+  PointOfSaleOutlined, 
+  SettingsOutlined, 
+  TrendingUpOutlined 
+} from '@mui/icons-material';
 import PaidIcon from '@mui/icons-material/Paid';
 import { useLocation, useNavigate } from 'react-router-dom';
 import profileImage from "../assets/profile.png";
 import { StyledBox } from './StyledBox';
-import { AdminPanelSettingsOutlined, CalendarMonthOutlined, ChevronLeft, ChevronRightOutlined, HomeOutlined, PieChartOutlined, PointOfSaleOutlined, SettingsOutlined, TrendingUpOutlined } from '@mui/icons-material';
 
 const navItems = [
   {
