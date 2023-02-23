@@ -1,7 +1,7 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query';
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { IUser } from '../../utils/models';
 
-const API_BASE_URL = 'http://localhost:3000';
+const API_BASE_URL = 'http://localhost:5001';
 
 export const api = createApi({
   reducerPath: 'adminApi',
@@ -10,7 +10,7 @@ export const api = createApi({
     baseUrl: API_BASE_URL
   }),
   endpoints: (builder) => ({
-    getUser: builder.query<IUser, void>({
+    getUser: builder.query<IUser[], void>({
       query: (id) => `general/user/${id}`,
       providesTags: ["User"]
     })

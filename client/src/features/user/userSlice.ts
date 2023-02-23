@@ -5,7 +5,7 @@ type UserState = {
 };
 
 const initialState: UserState = {
-  userId: '63f4e93ec60a4d30bfeaaa45',
+  userId: '63f4e8c4cc42efeae9ea5771',
 };
 
 export const userSlice = createSlice({
